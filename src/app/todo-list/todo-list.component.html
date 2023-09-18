@@ -1,0 +1,44 @@
+<!-- app/todo-list/todo-list.component.html -->
+<div class="todo-list">
+  <div class="header">
+    <h1 class="text-center">My To-Do List</h1>
+  </div>
+  <div class="add-todo">
+    <input
+      type="text"
+      [(ngModel)]="newTodo"
+      placeholder="Add a new task"
+      class="form-control"
+      (keyup.enter)="addTodo()"
+    />
+    <button class="btn btn-primary" (click)="addTodo()">Add</button>
+  </div>
+  <div class="tasks">
+    <div class="task" *ngFor="let todo of getPendingTodos()">
+      <div class="task-title">
+        <span>{{ todo.title }}</span>
+      </div>
+      <div class="task-actions">
+        <button class="btn btn-success" (click)="markAsCompleted(todo)">
+          Done
+        </button>
+        <button class="btn btn-danger" (click)="deleteTodo(todo.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="completed-task" *ngFor="let todo of getCompletedTodos()">
+      <div class="completed-task-title">
+        <span>{{ todo.title }}</span>
+      </div>
+      <div class="completed-task-actions">
+        <button class="btn btn-warning" (click)="markAsPending(todo)">
+          Undo
+        </button>
+        <button class="btn btn-danger" (click)="deleteTodo(todo.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

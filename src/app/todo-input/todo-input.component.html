@@ -1,0 +1,9 @@
+<div class="todo-input">
+  <input
+    type="text"
+    [(ngModel)]="newTodo"
+    placeholder="Add a new task"
+    (keyup.enter)="onAddTodo()"
+  />
+  <button (click)="onAddTodo()">Add</button>
+</div>

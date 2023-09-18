@@ -1,0 +1,6 @@
+<!-- todo-item.component.html -->
+<div class="todo-item" [ngClass]="{ completed: todo.completed }">
+  <span>{{ todo.title }}</span>
+  <button (click)="onDelete()">Delete</button>
+  <button (click)="onToggleCompletion()">Toggle Completion</button>
+</div>
